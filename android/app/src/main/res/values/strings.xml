@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">com.appauth.demo</string>
-    <string name="title_activity_main">com.appauth.demo</string>
-    <string name="package_name">com.appauth.demo</string>
-    <string name="custom_url_scheme">com.appauth.demo</string>
+    <string name="app_name">Dev1</string>
+    <string name="title_activity_main">Dev1</string>
+    <string name="package_name">com.adesa.afc.android</string>
+    <string name="custom_url_scheme">dev.com.adesa.afc</string>
 </resources>

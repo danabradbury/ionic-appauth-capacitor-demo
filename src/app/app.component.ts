@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
-
 const { SplashScreen } = Plugins;
 
-import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +16,9 @@ export class AppComponent {
   }
 
   initializeApp() {
+    console.log('initialize the app');
     this.platform.ready().then(() => {
+      console.log('Platform ready, hide the splash screen');
       SplashScreen.hide();
     });
   }

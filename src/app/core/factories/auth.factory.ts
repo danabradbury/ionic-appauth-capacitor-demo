@@ -14,11 +14,13 @@ export let authFactory = (platform: Platform, ngZone: NgZone,
     authService.authConfig = environment.auth_config;
 
     if (!platform.is('cordova')) {
-        authService.authConfig.redirect_url = window.location.origin + '/auth/callback';
-        authService.authConfig.end_session_redirect_url = window.location.origin + '/auth/endsession';
+        console.log('overide the redirect url with window.location.origin');
+        authService.authConfig.redirect_url = window.location.origin + '/loginCallback';
+        authService.authConfig.end_session_redirect_url = window.location.origin + '/logout';
     }
 
     if (platform.is('capacitor')) {
+        console.log('add the appUrlOpen listener');
         App.addListener('appUrlOpen', (data: any) => {
             if (data.url !== undefined) {
                 ngZone.run(() => {
@@ -29,5 +31,6 @@ export let authFactory = (platform: Platform, ngZone: NgZone,
     }
 
     authService.addActionObserver(new ConsoleLogObserver());
+    console.log('dump the config: ' + JSON.stringify(authService.authConfig));
     return authService;
 };
